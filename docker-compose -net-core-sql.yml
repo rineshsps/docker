@@ -9,6 +9,8 @@ services:
     #environment:
     #  - ConnectionString__UserDB="Server=localhost,49173;Database=masterv1;User Id=sa;Password=Your_password123"
     #    "UserDB": "Server=sqlserverv13,49173;Database=test;User Id=sa;Password=Your_password123;MultipleActiveResultSets=True"
+    # final     "UserDB": "Server=sqlserver-ab;Database=test1234;User Id=sa;Password=Your_password123"
+    # connect locally - localhost,49194
     ports:
       - "8085:80"
   sqlserverv13:
