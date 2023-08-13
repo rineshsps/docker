@@ -11,6 +11,9 @@ docker-compose build
 
 docker-compose up
 
+# .ipynb for run the cmd line file 
+mongo.ipynb - to run the mongo db 
+
 
 
   
