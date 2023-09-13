@@ -1,0 +1,27 @@
+version: '3.4'
+services:
+  s3:
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 500M
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 3
+        window: 120s
+
+    image: "minio/minio:latest"
+    entrypoint: sh
+    command: -c "mkdir -p /data/dev && minio server /data --address :6969 --console-address :6970"
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=password
+    container_name: s3
+    volumes:
+      - minio-volume:/data:delegated
+    ports:
+      - "6970:6970"
+volumes:
+  minio-volume:
